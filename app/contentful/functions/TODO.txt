@@ -1,0 +1,15 @@
+TODO
+
+entries => {
+    init: (env) => liste des entries,
+    get: (id) => store.read.contentful.entries.id == id 
+}
+
+routes => {
+    get: () => store.read.contentful.entries.contentype == 'Page'
+}
+
+init = (env) => {
+    const entries = entries.get(env)
+    redux.setStore: {contentful: {entries}}
+}
