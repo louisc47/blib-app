@@ -1,9 +1,9 @@
 import { pathOr } from 'ramda';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Linking, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-export default ({ css, titre, icon }) => {
+export default ({ css, titre, icon, instagram, facebook, web }) => {
   return (
     <View style={pathOr({}, ['en-US', 'container'], css)}>
       <View
@@ -33,7 +33,9 @@ export default ({ css, titre, icon }) => {
           alignItems: 'center',
         }}
       >
-        <View
+        <TouchableOpacity
+          style={{ marginRight: 10 }}
+          onPress={() => Linking.openURL(pathOr(null, ['en-US'], instagram))}
           style={{
             backgroundColor: 'black',
             width: 65,
@@ -44,8 +46,10 @@ export default ({ css, titre, icon }) => {
           }}
         >
           <Icon name="instagram" color="white" type="font-awesome" size={34} />
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{ marginRight: 10 }}
+          onPress={() => Linking.openURL(pathOr(null, ['en-US'], facebook))}
           style={{
             backgroundColor: 'black',
             width: 65,
@@ -56,8 +60,10 @@ export default ({ css, titre, icon }) => {
           }}
         >
           <Icon name="facebook" color="white" type="font-awesome" size={34} />
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{ marginRight: 10 }}
+          onPress={() => Linking.openURL(pathOr(null, ['en-US'], web))}
           style={{
             backgroundColor: 'black',
             width: 65,
@@ -68,7 +74,7 @@ export default ({ css, titre, icon }) => {
           }}
         >
           <Icon name="globe" color="white" type="feather" size={34} />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
