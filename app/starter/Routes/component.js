@@ -1,14 +1,19 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-
-import Page from '../../container/Page';
 import React from 'react';
-import { Text } from 'react-native';
+
+import SousPage from '../../container/SousPage';
 
 export default ({ routes }) => {
   if (!routes || Object.keys(routes).length == 0) return null;
   const navigator = createDrawerNavigator(
-    { ...routes },
+    {
+      ...routes,
+      SousPage: {
+        screen: SousPage,
+        navigationOptions: { drawerLabel: () => null },
+      },
+    },
     {
       drawerBackgroundColor: '#e9a618',
       contentOptions: {
