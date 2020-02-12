@@ -11,10 +11,13 @@ export default ({ composants }) => {
         flexDirection: 'row',
         justifyContent: 'space-around',
         flexWrap: 'wrap',
+        alignItems: 'center',
+        backgroundColor: '#eeeeee',
+        paddingBottom: 100,
       }}
     >
       {composants.map((item, i) => {
-        return composant(item);
+        return composant(item, i);
       })}
     </ScrollView>
   );
