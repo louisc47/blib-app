@@ -1,12 +1,13 @@
-import {
-  compose,
-  withState,
-  withHandlers,
-  lifecycle,
-  withProps,
-} from 'recompose';
+import { compose, withProps } from 'recompose';
 import { pathOr } from 'ramda';
-import { ScrollView, Text, View, TouchableOpacity, Image } from 'react-native';
+import {
+  ScrollView,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Linking,
+} from 'react-native';
 import { withNavigation } from 'react-navigation';
 import React from 'react';
 import contentful from '../../contentful';
@@ -24,6 +25,7 @@ const convertDateNumber = n => {
 
 const Component = props => {
   const { item } = props;
+  console.log(item);
   let dateConvert = null;
   if (!item) {
     return null;
@@ -115,6 +117,15 @@ const Component = props => {
             flexDirection: 'row',
             justifyContent: 'center',
           }}
+          onPress={() => {
+            const lat = pathOr(null, ['lieu', 'en-US', 'lat'], item);
+            const lon = pathOr(null, ['lieu', 'en-US', 'lon'], item);
+            const url = `geo:${lat},${lon}`;
+            Linking.canOpenURL(url).then(supported => {
+              if (supported) Linking.openURL(url);
+              else alert('Fonctionnalité indisponible');
+            });
+          }}
         >
           <Icon type="font-awesome" name="car" color="white" size={26} />
         </TouchableOpacity>
@@ -138,6 +149,9 @@ const Component = props => {
             flexDirection: 'row',
             justifyContent: 'center',
           }}
+          onPress={() =>
+            Linking.openURL(pathOr(null, ['facebook', 'en-US'], item))
+          }
         >
           <Icon type="font-awesome" name="facebook" color="white" size={26} />
         </TouchableOpacity>
