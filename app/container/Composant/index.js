@@ -6,6 +6,7 @@ import CarteAccueil from '../../components/CarteAccueil';
 import Liste from '../../components/Liste';
 import Map from '../../components/Map';
 import NextEvent from '../../components/NextEvent';
+import SocialNetwork from '../../components/SocialNetwork';
 
 export default (composant, key) => {
   console.log(pathOr(null, ['sys', 'contentType', 'sys', 'id'], composant));
@@ -20,6 +21,8 @@ export default (composant, key) => {
       return <Map {...pathOr({}, ['fields'], composant)} key={key} />;
     case 'prochainEvenement':
       return <NextEvent {...pathOr({}, ['fields'], composant)} key={key} />;
+    case 'socialNetwork':
+      return <SocialNetwork {...pathOr({}, ['fields'], composant)} key={key} />;
     default:
       return null;
   }
