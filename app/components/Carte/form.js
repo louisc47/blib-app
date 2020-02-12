@@ -23,10 +23,14 @@ export default props => (
         {pathOr('', ['titre', 'en-US'], props)}
       </Text>
     </View>
-    <Input placeholder="Code de la carte" />
+    <Input
+      placeholder="Code de la carte"
+      onChange={e => props.setCode(e.nativeEvent.text)}
+      errorMessage={props.message}
+    />
     <TouchableOpacity
       style={pathOr({}, ['css', 'en-US', 'bouton1'], props)}
-      onPress={props.toogleCarte}
+      onPress={props.submit}
     >
       <Text style={pathOr({}, ['css', 'en-US', 'bouton1Text'], props)}>
         Valider

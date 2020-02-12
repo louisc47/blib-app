@@ -2,7 +2,7 @@ import { pathOr } from 'ramda';
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default ({ css }) => {
+export default ({ css, userInfo }) => {
   return (
     <View style={pathOr({}, ['en-US', 'container'], css)}>
       <Text style={{ color: '#e9a618', fontSize: 42, fontWeight: 'bold' }}>
@@ -15,7 +15,7 @@ export default ({ css }) => {
           fontWeight: 'bold',
         }}
       >
-        Nom Prénom
+        {userInfo}
       </Text>
     </View>
   );
