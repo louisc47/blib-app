@@ -5,8 +5,10 @@ import Carte from '../../components/Carte';
 import CarteAccueil from '../../components/CarteAccueil';
 import Liste from '../../components/Liste';
 import Map from '../../components/Map';
+import NextEvent from '../../components/NextEvent';
 
 export default (composant, key) => {
+  console.log(pathOr(null, ['sys', 'contentType', 'sys', 'id'], composant));
   switch (pathOr(null, ['sys', 'contentType', 'sys', 'id'], composant)) {
     case 'carte':
       return <Carte {...pathOr({}, ['fields'], composant)} key={key} />;
@@ -15,8 +17,9 @@ export default (composant, key) => {
     case 'liste':
       return <Liste {...pathOr({}, ['fields'], composant)} key={key} />;
     case 'map':
-      console.log(composant);
       return <Map {...pathOr({}, ['fields'], composant)} key={key} />;
+    case 'prochainEvenement':
+      return <NextEvent {...pathOr({}, ['fields'], composant)} key={key} />;
     default:
       return null;
   }
