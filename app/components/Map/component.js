@@ -10,7 +10,6 @@ export default ({ css, location, markersList, redirect }) => {
     <View style={pathOr({}, ['en-US'], css)}>
       <MapView initialRegion={location} style={{ width: '100%', height: 400 }}>
         {markersList.map((item, i) => {
-          console.log(item);
           return (
             <Marker
               key={i}

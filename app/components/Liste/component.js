@@ -14,7 +14,6 @@ export default props => {
     icon,
     css = { 'en-US': {} },
   } = props;
-  console.log('liste', props);
   return (
     <View style={pathOr({}, ['en-US', 'container'], css)}>
       <View

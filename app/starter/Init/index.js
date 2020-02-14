@@ -25,8 +25,6 @@ export default Component =>
       init: ({ dispatchSetEntries, dispatchSetAssets }) => async () => {
         const entries = await contentful.get.entries.all();
         const assets = await contentful.get.assets.all();
-        console.log(assets);
-        console.log('po', pathOr([], ['items'], assets));
         dispatchSetEntries(entries);
         dispatchSetAssets(pathOr([], ['items'], assets));
       },

@@ -4,6 +4,7 @@ import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 export default ({ css, icon, titre, nextEvent, redirect, assetURL }) => {
+  if (!nextEvent) return null;
   return (
     <View style={pathOr({}, ['en-US', 'container'], css)}>
       <View

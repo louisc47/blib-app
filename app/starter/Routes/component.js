@@ -1,10 +1,10 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import React from 'react';
-
 import SousPage from '../../container/SousPage';
 
-export default ({ routes }) => {
+export default props => {
+  const { routes } = props;
   if (!routes || Object.keys(routes).length == 0) return null;
   const navigator = createDrawerNavigator(
     {

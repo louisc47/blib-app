@@ -1,11 +1,11 @@
 import { pathOr } from 'ramda';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { Icon } from 'react-native-elements';
 
 import contentful from '../../contentful';
 
-export default ({ css, icon, titre, fullList, assets }) => {
+export default ({ css, icon, titre, fullList, assets, redirect }) => {
   return (
     <View style={pathOr({}, ['en-US', 'container'], css)}>
       <View
@@ -30,7 +30,11 @@ export default ({ css, icon, titre, fullList, assets }) => {
       <ScrollView horizontal>
         {fullList.map((item, i) => {
           return (
-            <View style={pathOr({}, ['en-US', 'liste', css])} key={i}>
+            <TouchableOpacity
+              style={pathOr({}, ['en-US', 'liste', css])}
+              key={i}
+              onPress={() => redirect(item)}
+            >
               {assets && assets.length > 0 ? (
                 <Image
                   source={{
@@ -52,7 +56,7 @@ export default ({ css, icon, titre, fullList, assets }) => {
                   {pathOr('', ['description', 'en-US'], item).substring(0, 35)}
                 </Text>
               </View>
-            </View>
+            </TouchableOpacity>
           );
         })}
       </ScrollView>

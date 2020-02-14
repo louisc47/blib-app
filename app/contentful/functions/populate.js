@@ -1,11 +1,11 @@
 import { pathOr } from 'ramda';
 
-import contentful from '../';
+import get_entries_id from './get_entrie';
 
 export default array => {
   let res = [];
   array.map((item, i) => {
-    res.push(contentful.get.entries.id(pathOr(null, ['sys', 'id'], item)));
+    res.push(get_entries_id(pathOr(null, ['sys', 'id'], item)));
   });
   return res;
 };

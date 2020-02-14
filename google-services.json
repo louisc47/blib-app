@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "156358844578",
+    "firebase_url": "https://blib-app.firebaseio.com",
+    "project_id": "blib-app",
+    "storage_bucket": "blib-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156358844578:android:93dc7cd5296f6ea467f7fb",
+        "android_client_info": {
+          "package_name": "com.blib.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156358844578-ntdqv4j347ku7vlgu232dqsgagl4dp76.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMlYlhZtdKxD5wX1O1c6LsJATkihunYCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156358844578-ntdqv4j347ku7vlgu232dqsgagl4dp76.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,7 +10,6 @@ export default (state = initialState, action) => {
     case contentful.SET_ENTRIES:
       return { ...state, entries: action.entries };
     case contentful.SET_ASSETS:
-      console.log(action);
       return { ...state, assets: action.assets };
     default:
       return { ...state };

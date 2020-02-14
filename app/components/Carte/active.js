@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 
 export default ({ css, userInfo }) => {
   return (
-    <View style={pathOr({}, ['en-US', 'container'], css)}>
+    <View style={pathOr({}, ['en-US', 'container_active'], css)}>
       <Text style={{ color: '#e9a618', fontSize: 42, fontWeight: 'bold' }}>
         BLIB VIP
       </Text>

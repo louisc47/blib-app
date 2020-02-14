@@ -24,7 +24,9 @@ export default compose(
     loadList: ({ liste, setFullList }) => () => {
       let fullList = [];
       for (let i = 0; i < pathOr([], ['en-US'], liste).length; i++) {
-        let data = contentful.get.entries.id(liste['en-US'][i].sys.id);
+        let data = contentful.get.entries.id(
+          pathOr({ fields: [] }, ['en-US', i, 'sys', 'id'], liste),
+        );
         fullList.push(data.fields);
       }
       setFullList(fullList);

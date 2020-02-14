@@ -11,7 +11,6 @@ import Titre from '../../components/Titre';
 import WebView from '../../components/WebView';
 
 export default (composant, key) => {
-  console.log(pathOr(null, ['sys', 'contentType', 'sys', 'id'], composant));
   switch (pathOr(null, ['sys', 'contentType', 'sys', 'id'], composant)) {
     case 'carte':
       return <Carte {...pathOr({}, ['fields'], composant)} key={key} />;

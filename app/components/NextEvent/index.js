@@ -5,6 +5,8 @@ import {
   withProps,
   withState,
   withHandlers,
+  branch,
+  renderNothing,
 } from 'recompose';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
@@ -21,11 +23,15 @@ export default compose(
     events: entries.filter(e => e.sys.contentType.sys.id == 'evenement'),
   })),
   withProps(({ events }) => ({
-    nextEvent: events.sort((a, b) => {
-      let dateA = new Date(pathOr(0, ['fields', 'date', 'en-US'], a));
-      let dateB = new Date(pathOr(0, ['fields', 'date', 'en-US'], b));
-      return dateA - dateB;
-    })[0].fields,
+    nextEvent: pathOr(
+      null,
+      [0, 'fields'],
+      events.sort((a, b) => {
+        let dateA = new Date(pathOr(0, ['fields', 'date', 'en-US'], a));
+        let dateB = new Date(pathOr(0, ['fields', 'date', 'en-US'], b));
+        return dateA - dateB;
+      }),
+    ),
   })),
   withHandlers({
     redirect: ({ navigation }) => item => {

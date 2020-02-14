@@ -16,7 +16,7 @@ export default compose(
   withHandlers({
     populateMarker: ({ markers }) => () => {
       let tab = [];
-
+      if (!markers) return tab;
       markers = markers['en-US'];
       for (let i = 0; i < markers.length; i++) {
         let res = contentful.get.entries.id(
@@ -32,13 +32,7 @@ export default compose(
   }),
   lifecycle({
     componentDidMount() {
-      const {
-        setLocation,
-        location,
-        populateMarker,
-        setMarkersList,
-      } = this.props;
-      console.log(this.props);
+      const { setLocation, populateMarker, setMarkersList } = this.props;
       navigator.geolocation.getCurrentPosition(position => {
         setLocation({
           latitude: position.coords.latitude,

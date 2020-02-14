@@ -25,7 +25,6 @@ const convertDateNumber = n => {
 
 const Component = props => {
   const { item } = props;
-  console.log(item);
   let dateConvert = null;
   if (!item) {
     return null;
