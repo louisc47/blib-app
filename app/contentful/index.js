@@ -9,6 +9,9 @@ import get_user from './functions/get_user';
 
 import populate from './functions/populate';
 
+import push from './functions/push';
+import update from './functions/update';
+
 export default {
   get: {
     entries: {
@@ -22,6 +25,9 @@ export default {
     user: get_user,
     routes: get_routes,
   },
+
+  push: push,
+  update,
 
   populate,
 };

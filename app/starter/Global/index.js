@@ -1,4 +1,4 @@
-import { compose } from 'recompose';
+import { compose, lifecycle, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import React from 'react';
 
