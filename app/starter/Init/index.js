@@ -31,12 +31,12 @@ export default Component =>
     withHandlers({
       init: ({ dispatchSetEntries, dispatchSetAssets }) => async () => {
         const entries = await contentful.get.entries.all();
+        console.log(entries);
         const assets = await contentful.get.assets.all();
         dispatchSetEntries(entries);
         dispatchSetAssets(pathOr([], ['items'], assets));
       },
       registerForPushNotification: () => async () => {
-        // AsyncStorage.clear();
         const isPNAuth = (await AsyncStorage.getItem(storage.expoToken))
           ? true
           : false;

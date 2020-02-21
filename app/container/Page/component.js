@@ -1,6 +1,7 @@
 import React from 'react';
 import composant from '../Composant';
 import { ScrollView } from 'react-native-gesture-handler';
+import { SharedElement } from 'react-native-motion';
 
 export default ({ composants }) => {
   return (

@@ -5,7 +5,7 @@ export const token = 'CFPAT-XQAWFy7Hi-Vu4lST3ULY7NSfM2QCuL5il9WrfaZegLI';
 
 export const getURL = (
   object,
-  filters = `access_token=${token}&limit=1000`,
+  filters = `access_token=${token}&limit=1000&sys.publishedVersion%5Bexists%5D=true`,
   isPost = false,
 ) => {
   if (isPost)
